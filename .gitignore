@@ -26,9 +26,9 @@ build/
 .coverage
 htmlcov/
 
-# Reports & Exports
-reports/
-exports/
+# Reports & Exports (top-level output dirs only)
+/reports/
+/exports/
 
 # IDE
 .vscode/
