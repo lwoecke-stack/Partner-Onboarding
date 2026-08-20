@@ -2,19 +2,14 @@
 Siemens Partner Eligibility & Onboarding Automation System
 Streamlit Frontend — Siemens Corporate Design
 """
-import os
 import requests
 import pandas as pd
 import streamlit as st
 
 # ── Network config ────────────────────────────────────────────────────────────
-# Locally: API_BASE = http://localhost:8000
-# Cloud:   Set API_BASE_URL in Streamlit Cloud Secrets or env variable
-_api_base_default = "http://localhost:8000"
-try:
-    API_BASE = st.secrets.get("API_BASE_URL", os.environ.get("API_BASE_URL", _api_base_default))
-except Exception:
-    API_BASE = os.environ.get("API_BASE_URL", _api_base_default)
+# Streamlit runs server-side → API calls go via localhost (always correct).
+# Other users access the Streamlit UI via the server's local IP on port 8501.
+API_BASE = "http://localhost:8000"
 
 # ── Siemens Brand Colors ──────────────────────────────────────────────────────
 NAVY      = "#000028"   # Siemens Dark Navy — primary background
